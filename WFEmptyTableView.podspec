@@ -17,7 +17,7 @@ Pod::Spec.new do |s|
 
   s.name         = "WFEmptyTableView"
   s.version      = "0.0.1"
-  s.summary      = "A short description of WFEmptyTableView."
+  s.summary      = "TableView数据为空的时候，展示一个提示图片和一行提示文字"
 
   # This description is used to generate tags and improve search results.
   #   * Think: What does it do? Why did you write it? What is the focus?
@@ -25,8 +25,8 @@ Pod::Spec.new do |s|
   #   * Write the description between the DESC delimiters below.
   #   * Finally, don't worry about the indent, CocoaPods strips it!
   s.description  = <<-DESC
-	空的tableview提示                   
-DESC
+TableView列表为空的时候，展示一些提示信息，比如一个图片和一行提示文字
+                   DESC
 
   s.homepage     = "https://github.com/wanawt/WFEmptyTableView"
   # s.screenshots  = "www.example.com/screenshots_1.gif", "www.example.com/screenshots_2.gif"
@@ -64,10 +64,11 @@ DESC
   #  the deployment target. You can optionally include the target after the platform.
   #
 
-  s.platform     = :ios, "7.0"
+  # s.platform     = :ios
+  s.platform     = :ios, "8.0"
 
   #  When using multiple platforms
-  s.ios.deployment_target = "7.0"
+  # s.ios.deployment_target = "5.0"
   # s.osx.deployment_target = "10.7"
   # s.watchos.deployment_target = "2.0"
   # s.tvos.deployment_target = "9.0"
@@ -79,7 +80,7 @@ DESC
   #  Supports git, hg, bzr, svn and HTTP.
   #
 
-  s.source       = { :git => "https://github.com/wanawt/WFEmptyTableView.git", :tag => "#{s.version}" }
+  s.source       = { :git => "https://github.com/wanawt/WFEmptyTableView.git", :tag => "v#{s.version}" }
 
 
   # ――― Source Code ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
@@ -90,8 +91,8 @@ DESC
   #  Not including the public_header_files will make all headers public.
   #
 
-  s.source_files  = "WFEmptyTableView/WFEmpty", "WFEmptyTableView/WFEmpty/*.{h,m}"
-  
+  s.source_files  = "WFEmptyTableView/WFEmpty/*.{h,m}"
+  #s.exclude_files = "Classes/Exclude"
 
   # s.public_header_files = "Classes/**/*.h"
 
