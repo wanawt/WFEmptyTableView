@@ -27,7 +27,6 @@
 
 - (void)setupViews {
     _customBackView = [[UIView alloc] initWithFrame:self.frame];
-    _customBackView.backgroundColor = [UIColor yellowColor];
     
     _tipImageView = [[UIImageView alloc] initWithFrame:CGRectMake((kScreenWidth-200/2)/2, self.frame.size.height/3, 200/2, 200/2)];
     [_customBackView addSubview:_tipImageView];
