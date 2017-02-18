@@ -32,7 +32,7 @@
     [_customBackView addSubview:_tipImageView];
     _imageFrame = _tipImageView.frame;
     
-    _label = [[UILabel alloc] initWithFrame:CGRectMake(0, CGRectGetMaxY(_tipImageView.frame), kScreenWidth, 100)];
+    _label = [[UILabel alloc] initWithFrame:CGRectMake(0, CGRectGetMaxY(_tipImageView.frame), kScreenWidth, 60)];
     
     _label.backgroundColor = [UIColor clearColor];
     _label.textAlignment = NSTextAlignmentCenter;
@@ -64,31 +64,22 @@
     [attributedString1 addAttribute:NSParagraphStyleAttributeName value:paragraphStyle1 range:NSMakeRange(0, [tipString length])];
     [_label setAttributedText:attributedString1];
     
-    [self resetFrame];
+    _label.frame = CGRectMake(CGRectGetMinX(_label.frame), CGRectGetMaxY(_tipImageView.frame), CGRectGetWidth(_label.frame), CGRectGetHeight(_label.frame));
 }
 
 - (void)setTipImageName:(NSString *)tipImageName {
-    _scale = 1;
     UIImage *image = [UIImage imageNamed:tipImageName];
-    _scale = image.size.height*1.0 / image.size.width;
     _tipImageView.image = image;
     
-    if (isnan(_scale)) {
-        _scale = 1;
-    }
-    [self resetFrame];
+    _tipImageView.frame = CGRectMake(0, CGRectGetMinY(_tipImageView.frame), image.size.width, image.size.height);
+    _tipImageView.center = CGPointMake(kScreenWidth / 2.0, _tipImageView.center.y);
+    
+    _label.frame = CGRectMake(CGRectGetMinX(_label.frame), CGRectGetMaxY(_tipImageView.frame), CGRectGetWidth(_label.frame), CGRectGetHeight(_label.frame));
 }
 
 - (void)setVOffset:(NSInteger)vOffset {
     _label.frame = CGRectMake(CGRectGetMinX(_label.frame), CGRectGetMinY(_label.frame)+vOffset, CGRectGetWidth(_label.frame), CGRectGetHeight(_label.frame));
     _tipImageView.frame = CGRectMake(CGRectGetMinX(_tipImageView.frame), CGRectGetMinY(_tipImageView.frame)+vOffset, CGRectGetWidth(_tipImageView.frame), CGRectGetHeight(_tipImageView.frame));
-}
-
-- (void)resetFrame {
-    _tipImageView.frame = CGRectMake(0, CGRectGetMinY(_tipImageView.frame), 150, 150 * _scale);
-    _tipImageView.center = CGPointMake(kScreenWidth / 2.0, _tipImageView.center.y);
-    
-    _label.frame = CGRectMake(CGRectGetMinX(_label.frame), CGRectGetMaxY(_tipImageView.frame), CGRectGetWidth(_label.frame), CGRectGetHeight(_label.frame));
 }
 
 @end
