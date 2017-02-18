@@ -15,5 +15,6 @@
 @property (nonatomic, assign) NSInteger vOffset;
 @property (nonatomic, copy) NSString *tipString;     // 提示文字
 @property (nonatomic, copy) NSString *tipImageName;  // 提示图片
+@property (nonatomic, retain) UIFont *customFont;       // 字体大小
 
 @end

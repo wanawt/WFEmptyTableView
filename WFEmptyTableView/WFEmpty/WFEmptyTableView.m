@@ -82,4 +82,9 @@
     _tipImageView.frame = CGRectMake(CGRectGetMinX(_tipImageView.frame), CGRectGetMinY(_tipImageView.frame)+vOffset, CGRectGetWidth(_tipImageView.frame), CGRectGetHeight(_tipImageView.frame));
 }
 
+- (void)setCustomFont:(UIFont *)customFont {
+    _customFont = customFont;
+    _label.font = customFont;
+}
+
 @end
